@@ -3,18 +3,19 @@
 }
 
 body {
-  height: 100vh;
   display: flex;
+  color: #9e2a2b;
+  height: 100vh;
   justify-content: center;
 }
 
 .player-one-display,
 .player-two-display {
-  background-color: red;
+  background-color: #f9dcc4;
   flex: 25%;
 }
 
 .game-board {
-  background-color: yellow;
+  background-color: #f8edeb;
   flex: 50%;
 }
