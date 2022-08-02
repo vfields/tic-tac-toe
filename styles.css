@@ -3,5 +3,18 @@
 }
 
 body {
-  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.player-one-display,
+.player-two-display {
+  background-color: red;
+  flex: 25%;
+}
+
+.game-board {
+  background-color: yellow;
+  flex: 50%;
 }
