@@ -1,3 +1,47 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  color: #9e2a2b;
+  display: flex;
+  font-family: sans-serif;
+  height: 100vh;
+  justify-content: center;
+}
+
+.player-one-display,
+.player-two-display {
+  background-color: #f9dcc4;
+  flex: 1.25;
+  text-align: center;
+}
+
+.win-count-token {
+  font-size: 35px;
+  margin: 15px 0px 0px;
+}
+
+.win-count-text {
+  margin-top: 0px;
+}
+
+.game-board {
+  background-color: #f8edeb;
+  flex: 3;
+  padding: 5px;
+  text-align: center;
+}
+
+.game-board-text {
+  margin-top: 70px;
+}
+
+.game-board-token {
+  font-size: 45px;
+}
+
+.game-board-image {
+  height: 400px;
+  width: 320px;
+}
