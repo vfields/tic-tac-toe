@@ -34,8 +34,7 @@ body {
 }
 
 .game-board-text {
-  margin-top: 70px;
-  margin-bottom: 75px;
+  margin: 70px 0px 75px;
 }
 
 .game-board-token {
@@ -45,12 +44,17 @@ body {
 .tic-tac-toe-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 350px;
-  width: 350px;
+  height: 360px;
+  width: 360px;
 }
 
 .square {
+  align-items: center;
   border: 3px solid #9e2a2b;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  width: 120px;
 }
 
 #square-one,
@@ -75,4 +79,8 @@ body {
 #square-four,
 #square-seven {
   border-left: none;
+}
+
+.user-token {
+  font-size: 75px;
 }
