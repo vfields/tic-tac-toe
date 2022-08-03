@@ -2,6 +2,9 @@ class Game {
   constructor() {
     this.playerOne = new Player('playerOne', '🐶');
     this.playerTwo = new Player('playerTwo', '🐱');
+
+    /* brainstorm */
+
     // this.squareOne = 'empty';
     // this.squareTwo = 'empty';
     // this.squareThree = 'empty';
