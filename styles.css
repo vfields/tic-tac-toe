@@ -41,7 +41,11 @@ body {
   font-size: 45px;
 }
 
-.game-board-image {
+/* .game-board-image {
   height: 400px;
   width: 320px;
+} */
+
+.tic-tac-toe-grid {
+
 }
