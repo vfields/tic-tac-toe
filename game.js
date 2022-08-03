@@ -21,17 +21,26 @@ class Game {
   }
 
   pickSquare(player, squareNum) {
-    for (var i = 0; i < game.squares.length; i++) {
-      if (squareNum === i && game.squares[i] === '') {
-        this.squares[i] = player.token;
-        // separate function, hard-coded not so good version;
-        if (this.currentTurn === '🐶') {
-          this.currentTurn = '🐱';
-        }
-        else if (this.currentTurn === '🐱') {
-          this.currentTurn = '🐶'
+    if (this.currentTurn === player.token) {
+      for (var i = 0; i < game.squares.length; i++) {
+        if (squareNum === i && game.squares[i] === '' && this.currentTurn === player.token) {
+          this.squares[i] = player.token;
+          // check the board?
+          this.switchTurn();
         }
       }
+    }
+    else {
+      return `It's not your turn!`
+    }
+  } // refactor eventually, nested loops and conditionals
+
+  switchTurn() {
+    if (this.currentTurn === playerOne.token) {
+      this.currentTurn = playerTwo.token;
+    }
+    else if (this.currentTurn === playerTwo.token) {
+      this.currentTurn = playerOne.token;
     }
   }
 
