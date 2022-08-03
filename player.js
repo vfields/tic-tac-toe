@@ -22,9 +22,9 @@ class Player {
     for (var i = 0; i < game.squares.length; i++) {
       if (squareNum === i && game.squares[i] === '') {
         game.squares[i] = this.token;
+        // this.switchTurn();
       }
     }
-    // would have to place in appropriate index...
-    // like squareOne = i-1 (since it's index 0)
+    // check the board?
   }
 }
