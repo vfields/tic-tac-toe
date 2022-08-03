@@ -47,5 +47,12 @@ body {
 } */
 
 .tic-tac-toe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 400px;
+  width: 320px;
+}
 
+.square {
+  border: 2px solid red;
 }
