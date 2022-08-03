@@ -27,17 +27,12 @@ body {
 }
 
 .game-board {
-  background-color: #f8edeb;
-  flex: 3;
-  padding: 5px;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
   align-items: center;
-
-  /* display: flex column; */
-  /* align-items: center; */
+  background-color: #f8edeb;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .game-board-text {
