@@ -11,7 +11,26 @@ class Game {
     // this.squareSeven = 'empty';
     // this.squareEight = 'empty';
     // this.squareNine = 'empty';
-    this.squares = [];
+    this.squares = ['', '', '', '', '', '', '', '', ''];
   }
-  
+  isWinning() {
+    if (this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
+      return `Win!`
+    }
+    else if (this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]) {
+      return `Win!`
+    }
+    else if (this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]) {
+      return `Win!`
+    }
+    else if (this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]) {
+      return `Win!`
+    }
+    else if (this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]) {
+      return `Win!`
+    }
+    else if (this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]) {
+      return `Win!`
+    }
+  }
 }
