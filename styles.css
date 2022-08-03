@@ -41,18 +41,37 @@ body {
   font-size: 45px;
 }
 
-/* .game-board-image {
-  height: 400px;
-  width: 320px;
-} */
-
 .tic-tac-toe-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 400px;
-  width: 320px;
+  height: 375px;
+  width: 375px;
 }
 
 .square {
-  border: 2px solid red;
+  border: 3px solid #9e2a2b;
+}
+
+#square-one,
+#square-two,
+#square-three {
+  border-top: none;
+}
+
+#square-three,
+#square-six,
+#square-nine {
+  border-right: none;
+}
+
+#square-seven,
+#square-eight,
+#square-nine {
+  border-bottom: none;
+}
+
+#square-one,
+#square-four,
+#square-seven {
+  border-left: none;
 }
