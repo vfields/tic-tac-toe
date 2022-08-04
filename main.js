@@ -83,6 +83,9 @@ function renderToken(square) {
     <span class="user-token">${currentPlayer.token}</span>
     `
   }
+  else {
+    alert('Oops! Please pick a blank square.')
+  }
 }
 
 function updateCurrentPlayerToken() {
