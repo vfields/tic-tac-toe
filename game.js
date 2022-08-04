@@ -110,4 +110,11 @@ class Game {
   //     // this.playerOne.turn = true;
   //   }
   // }
+  // checkTurn(player) {
+  //   if (this.currentTurn === player) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
 }
