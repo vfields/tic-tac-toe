@@ -78,9 +78,11 @@ function placeToken() {
 }
 
 function renderToken(square) {
-  square.innerHTML += `
-  <span class="user-token">${currentPlayer.token}</span>
-  `
+  if (square.innerHTML === '') {
+    square.innerHTML += `
+    <span class="user-token">${currentPlayer.token}</span>
+    `
+  }
 }
 
 function updateCurrentPlayerToken() {
