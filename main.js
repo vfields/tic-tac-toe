@@ -5,6 +5,8 @@ var game
 var currentPlayer
 
 // query selectors
+var playerOneWins = document.querySelector('.player-one-wins');
+var playerTwoWins = document.querySelector('.player-two-wins');
 var gameBoardText = document.querySelector('.game-board-text');
 var gameGrid = document.querySelector('.tic-tac-toe-grid');
 var squareOne = document.querySelector('#square-one');
@@ -96,6 +98,7 @@ function updateGameBoardText() {
     `
   }
   else if (game.isWin()) {
+    updatePlayerWinsDisplay();
     gameBoardText.innerHTML += `
     <span class="game-board-token">${game.currentTurn.token}</span> won!
     `
@@ -105,4 +108,9 @@ function updateGameBoardText() {
     It's a draw <span class="game-board-token">🙈</span>
     `
   }
+}
+
+function updatePlayerWinsDisplay() {
+  playerOneWins.innerHTML = `${playerOne.wins}`;
+  playerTwoWins.innerHTML = `${playerTwo.wins}`;
 }
