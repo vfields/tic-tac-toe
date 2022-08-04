@@ -4,20 +4,20 @@ class Game {
     // this.playerTwo = new Player('playerTwo', '🐱');
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
-    this.currentTurn = playerOne.token;
+    this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
     /* brainstorm */
     // this.keepPlaying = false;
   }
   pickSquare(player, squareNum) {
-    if (this.currentTurn === player.token) {
+    if (this.currentTurn === player) {
       for (var i = 0; i < game.squares.length; i++) {
         if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
           // this.isWin()?
           // check the board?
           this.switchTurn();
-          return `It's ${this.currentTurn}'s turn!`
+          return `It's ${this.currentTurn.token}'s turn!`
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
@@ -29,11 +29,11 @@ class Game {
     }
   } // ^^ refactor eventually, nested loops and conditionals
   switchTurn() {
-    if (this.currentTurn === playerOne.token) {
-      this.currentTurn = playerTwo.token;
+    if (this.currentTurn === playerOne) {
+      this.currentTurn = playerTwo;
     }
-    else if (this.currentTurn === playerTwo.token) {
-      this.currentTurn = playerOne.token;
+    else if (this.currentTurn === playerTwo) {
+      this.currentTurn = playerOne;
     }
   }
   isWin() {
