@@ -32,47 +32,47 @@ function resetGame() {
 
 function placeToken() {
   currentPlayer = game.currentTurn;
-  if (event.target.closest(".square").id === 'square-one') {
+  if (event.target.closest(".square").id === 'square-one' && keepClicking()) {
     game.pickSquare(currentPlayer, 0);
     renderToken(squareOne);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-two') {
+  else if (event.target.closest(".square").id === 'square-two' && keepClicking()) {
     game.pickSquare(currentPlayer, 1);
     renderToken(squareTwo);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-three') {
+  else if (event.target.closest(".square").id === 'square-three' && keepClicking()) {
     game.pickSquare(currentPlayer, 2);
     renderToken(squareThree);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-four') {
+  else if (event.target.closest(".square").id === 'square-four' && keepClicking()) {
     game.pickSquare(currentPlayer, 3);
     renderToken(squareFour);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-five') {
+  else if (event.target.closest(".square").id === 'square-five' && keepClicking()) {
     game.pickSquare(currentPlayer, 4);
     renderToken(squareFive);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-six') {
+  else if (event.target.closest(".square").id === 'square-six' && keepClicking()) {
     game.pickSquare(currentPlayer, 5);
     renderToken(squareSix);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-seven') {
+  else if (event.target.closest(".square").id === 'square-seven' && keepClicking()) {
     game.pickSquare(currentPlayer, 6);
     renderToken(squareSeven);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-eight') {
+  else if (event.target.closest(".square").id === 'square-eight' && keepClicking()) {
     game.pickSquare(currentPlayer, 7);
     renderToken(squareEight);
     updateGameBoardText();
   }
-  else if (event.target.closest(".square").id === 'square-nine') {
+  else if (event.target.closest(".square").id === 'square-nine' && keepClicking()) {
     game.pickSquare(currentPlayer, 8);
     renderToken(squareNine);
     updateGameBoardText();
@@ -113,4 +113,13 @@ function updateGameBoardText() {
 function updatePlayerWinsDisplay() {
   playerOneWins.innerHTML = `${playerOne.wins}`;
   playerTwoWins.innerHTML = `${playerTwo.wins}`;
+}
+
+function keepClicking() {
+  if (!game.isWin() & !game.isDraw()) {
+    return true;
+  }
+  else if (game.isWin() || game.isDraw()) {
+    return false;
+  }
 }

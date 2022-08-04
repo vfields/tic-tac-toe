@@ -72,7 +72,7 @@ class Game {
   }
   newGame() {
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    // this.currentTurn = the previos winner
+    // this.currentTurn = the previous winner
   }
   /* not sure about these... */
   checkBoard() {
@@ -84,7 +84,7 @@ class Game {
       this.currentTurn.increaseWins();
       return `win, stop playing`
     }
-    else if (this.draw()) {
+    else if (this.isDraw()) {
       return `draw, stop playing`
     }
   }
