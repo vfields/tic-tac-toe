@@ -35,27 +35,35 @@ function placeToken() {
   }
   else if (event.target.closest(".square").id === 'square-two') {
     game.pickSquare(currentPlayer, 1);
+    renderToken(squareTwo);
   }
   else if (event.target.closest(".square").id === 'square-three') {
     game.pickSquare(currentPlayer, 2);
+    renderToken(squareThree);
   }
   else if (event.target.closest(".square").id === 'square-four') {
     game.pickSquare(currentPlayer, 3);
+    renderToken(squareFour);
   }
   else if (event.target.closest(".square").id === 'square-five') {
     game.pickSquare(currentPlayer, 4);
+    renderToken(squareFive);
   }
   else if (event.target.closest(".square").id === 'square-six') {
     game.pickSquare(currentPlayer, 5);
+    renderToken(squareSix);
   }
   else if (event.target.closest(".square").id === 'square-seven') {
     game.pickSquare(currentPlayer, 6);
+    renderToken(squareSeven);
   }
   else if (event.target.closest(".square").id === 'square-eight') {
     game.pickSquare(currentPlayer, 7);
+    renderToken(squareEight);
   }
   else if (event.target.closest(".square").id === 'square-nine') {
     game.pickSquare(currentPlayer, 8);
+    renderToken(squareNine);
   }
 }
 
