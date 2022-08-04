@@ -1,84 +1,93 @@
 class Game {
   constructor(playerOne, playerTwo) {
-    // this.playerOne = new Player('playerOne', '🐶');
-    // this.playerTwo = new Player('playerTwo', '🐱');
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
-    this.currentTurn = playerOne.token;
+    this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    /* brainstorm */
-    // this.keepPlaying = false;
   }
   pickSquare(player, squareNum) {
-    if (this.currentTurn === player.token) {
+    if (this.currentTurn === player) {
       for (var i = 0; i < game.squares.length; i++) {
         if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
-          // this.isWin()?
-          // check the board?
-          this.switchTurn();
-          return `It's ${this.currentTurn}'s turn!`
+          return this.checkBoard();
+          // can eventually be just this.checkBoard() I think
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
+          // can likely be deleted eventually
         }
       }
     }
     else {
       return `It's not your turn!`
+      // can likely be deleted eventually 
     }
   } // ^^ refactor eventually, nested loops and conditionals
   switchTurn() {
-    if (this.currentTurn === playerOne.token) {
-      this.currentTurn = playerTwo.token;
+    if (this.currentTurn === playerOne) {
+      this.currentTurn = playerTwo;
     }
-    else if (this.currentTurn === playerTwo.token) {
-      this.currentTurn = playerOne.token;
+    else if (this.currentTurn === playerTwo) {
+      this.currentTurn = playerOne;
     }
   }
   isWin() {
     if (this.squares[0] !== '' && this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[3] !== '' && this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]) {
-      return true; // `Win!``
+      return true;
     }
     else if (this.squares[6] !== '' && this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[0] !== '' && this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[1] !== '' && this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[2] !== '' && this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[0] !== '' && this.squares[0] === this.squares[4] && this.squares[4] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[2] !== '' && this.squares[2] === this.squares[4] && this.squares[4] === this.squares[6]) {
-      return true; // `Win!`
+      return true;
     }
     else {
-      return false; // `No winning combinations at this time.`
+      return false;
     }
   }
   isDraw() {
     if (this.squares[0] !== '' && this.squares[1] !== '' && this.squares[2] !== '' && this.squares[3] !== '' && this.squares[4] !== '' &&
         this.squares[5] !== '' && this.squares[6] !== '' && this.squares[7] !== '' && this.squares[8] !== '' && !this.isWin()) {
-          return true; // `this is draw`
+          return true;
         }
     else {
-      return false; // `this is not a draw`
+      return false;
     }
   }
   newGame() {
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    // this.currentTurn = the previos winner
+    // this.currentTurn = the previous winner
   }
   /* not sure about these... */
+  checkBoard() {
+    if (!this.isWin() && !this.isDraw()) {
+      this.switchTurn();
+      return `keep playing`
+    }
+    else if (this.isWin()) {
+      this.currentTurn.increaseWins();
+      return `win, stop playing`
+    }
+    else if (this.isDraw()) {
+      return `draw, stop playing`
+    }
+  }
   //
   // checkBoard() {
   //   for (var i = 0; i < this.squares.length; i++) {
@@ -110,4 +119,11 @@ class Game {
   //     // this.playerOne.turn = true;
   //   }
   // }
+  // checkTurn(player) {
+  //   if (this.currentTurn === player) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
 }
