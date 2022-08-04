@@ -12,11 +12,8 @@ class Game {
       for (var i = 0; i < game.squares.length; i++) {
         if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
-          if (!this.isWin() && !this.isDraw()) {
-            this.switchTurn();
-          }
-          // var returnMessage = this.checkBoard();
-          // return returnMessage;
+          return this.checkBoard();
+          // can eventually be just this.checkBoard() I think
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
@@ -78,17 +75,19 @@ class Game {
     // this.currentTurn = the previos winner
   }
   /* not sure about these... */
-  // checkBoard() {
-  //   if (!this.isWin() && !this.isDraw()) {
-  //     return false;
-  //   }
-  //   else if (this.isWin()) {
-  //     return true;
-  //   }
-  //   else if (this.isDraw()) {
-  //     return `draw`
-  //   }
-  // }
+  checkBoard() {
+    if (!this.isWin() && !this.isDraw()) {
+      this.switchTurn();
+      return `keep playing`
+    }
+    else if (this.isWin()) {
+      this.currentTurn.increaseWins();
+      return `win, stop playing`
+    }
+    else if (this.draw()) {
+      return `draw, stop playing`
+    }
+  }
   //
   // checkBoard() {
   //   for (var i = 0; i < this.squares.length; i++) {

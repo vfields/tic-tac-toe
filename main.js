@@ -102,7 +102,7 @@ function updateGameBoardText() {
   }
   else if (game.isDraw()) {
     gameBoardText.innerHTML += `
-    It's a draw!
+    It's a draw <span class="game-board-token">🙈</span>
     `
   }
 }
