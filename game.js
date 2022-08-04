@@ -1,7 +1,5 @@
 class Game {
   constructor(playerOne, playerTwo) {
-    // this.playerOne = new Player('playerOne', '🐶');
-    // this.playerTwo = new Player('playerTwo', '🐱');
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
     this.currentTurn = playerOne;
@@ -14,10 +12,8 @@ class Game {
       for (var i = 0; i < game.squares.length; i++) {
         if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
-          // this.isWin()?
-          // check the board?
-          this.switchTurn();
-          return `It's ${this.currentTurn.token}'s turn!`
+          var returnMessage = this.checkBoard();
+          return returnMessage;
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
@@ -72,6 +68,18 @@ class Game {
         }
     else {
       return false; // `this is not a draw`
+    }
+  }
+  checkBoard() {
+    if (!this.isWin() && !this.isDraw()) {
+      this.switchTurn();
+      return `It's ${this.currentTurn.token}'s turn!`
+    }
+    else if (this.isWin()) {
+      return `${this.currentTurn.token} wins!`
+    }
+    else if (this.isDraw()) {
+      return `It's a draw!`
     }
   }
   newGame() {
