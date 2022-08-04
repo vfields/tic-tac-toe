@@ -4,6 +4,8 @@ class Game {
     this.playerTwo = playerTwo;
     this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
+    /* brainstorm */
+    this.firstTurn = playerOne;
   }
   pickSquare(player, squareNum) {
     if (this.currentTurn === player) {
@@ -21,7 +23,7 @@ class Game {
     }
     else {
       return `It's not your turn!`
-      // can likely be deleted eventually 
+      // can likely be deleted eventually
     }
   } // ^^ refactor eventually, nested loops and conditionals
   switchTurn() {
@@ -72,9 +74,9 @@ class Game {
   }
   newGame() {
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    // this.currentTurn = the previous winner
+    this.switchFirstTurn();
+    this.currentTurn = this.firstTurn;
   }
-  /* not sure about these... */
   checkBoard() {
     if (!this.isWin() && !this.isDraw()) {
       this.switchTurn();
@@ -82,12 +84,21 @@ class Game {
     }
     else if (this.isWin()) {
       this.currentTurn.increaseWins();
-      return `win, stop playing`
+      return `win, stop playing, reset game`
     }
     else if (this.isDraw()) {
-      return `draw, stop playing`
+      return `draw, stop playing, reset game`
     }
   }
+  switchFirstTurn() {
+    if (this.firstTurn === playerOne) {
+      this.firstTurn = playerTwo;
+    }
+    else if (this.firstTurn === playerTwo) {
+      this.firstTurn = playerOne;
+    }
+  }
+  /* not sure about these... */
   //
   // checkBoard() {
   //   for (var i = 0; i < this.squares.length; i++) {
