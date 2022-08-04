@@ -9,6 +9,7 @@ class Game {
     this.keepPlaying = false;
     this.currentTurn = playerOne.token;
   }
+
   checkBoard() {
     for (var i = 0; i < this.squares.length; i++) {
       if (this.squares[i] === '') {
@@ -23,10 +24,14 @@ class Game {
   pickSquare(player, squareNum) {
     if (this.currentTurn === player.token) {
       for (var i = 0; i < game.squares.length; i++) {
-        if (squareNum === i && game.squares[i] === '' && this.currentTurn === player.token) {
+        if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
+          this.isWinning();
           // check the board?
           this.switchTurn();
+        }
+        else if (squareNum === i && game.squares[i] !== '') {
+          return `You have to pick a blank square!`
         }
       }
     }
@@ -44,50 +49,53 @@ class Game {
     }
   }
 
-  /* not sure about these... */
-  // kind of feels like whose turn at the start of the game..
-  whoseTurn() {
-    // new game, no one has won
-    if (this.playerOne.wins === 0 && this.playerTwo.wins === 0) {
-      this.playerOne.turn = true;
+  isWinning() {
+    if (this.squares[0] !== '' && this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
+      return `Win!`
+    }
+    else if (this.squares[3] !== '' && this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]) {
+      return `Win!`
+    }
+    else if (this.squares[6] !== '' && this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]) {
+      return `Win!`
+    }
+    else if (this.squares[0] !== '' && this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]) {
+      return `Win!`
+    }
+    else if (this.squares[1] !== '' && this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]) {
+      return `Win!`
+    }
+    else if (this.squares[2] !== '' && this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]) {
+      return `Win!`
+    }
+    else if (this.squares[0] !== '' && this.squares[0] === this.squares[4] && this.squares[4] === this.squares[8]) {
+      return `Win!`
+    }
+    else if (this.squares[2] !== '' && this.squares[2] === this.squares[4] && this.squares[4] === this.squares[6]) {
+      return `Win!`
+    }
+    else {
+      return `No winning combinations at this time.`
     }
   }
 
+  /* not sure about these... */
+  
   play() {
-    this.checkBoard();
+    // this.checkBoard();
     if (this.keepPlaying) {
-      // play
+      return `It's ${this.currentTurn}'s turn!`
     }
     else if (!this.keepPlaying) {
       // maybe... check winner?
     }
   }
 
-  isWinning() {
-    if (this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
-      return `Win!`
-    }
-    else if (this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]) {
-      return `Win!`
-    }
-    else if (this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]) {
-      return `Win!`
-    }
-    else if (this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]) {
-      return `Win!`
-    }
-    else if (this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]) {
-      return `Win!`
-    }
-    else if (this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]) {
-      return `Win!`
-    }
-
-    else if (this.squares[0] === this.squares[4] && this.squares[4] === this.squares[8]) {
-      return `Win!`
-    }
-    else if (this.squares[2] === this.squares[4] && this.squares[4] === this.squares[6]) {
-      return `Win!`
+  // kind of feels like whose turn at the start of the game..
+  whoseTurn() {
+    // new game, no one has won
+    if (this.playerOne.wins === 0 && this.playerTwo.wins === 0) {
+      // this.playerOne.turn = true;
     }
   }
 }
