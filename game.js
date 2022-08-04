@@ -4,7 +4,6 @@ class Game {
     this.playerTwo = playerTwo;
     this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    /* brainstorm */
     this.firstTurn = playerOne;
   }
   pickSquare(player, squareNum) {
@@ -88,7 +87,7 @@ class Game {
     }
     else if (this.isDraw()) {
       return `draw, stop playing, reset game`
-    }
+    } // refactor these returns 
   }
   switchFirstTurn() {
     if (this.firstTurn === playerOne) {

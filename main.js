@@ -138,8 +138,7 @@ function updatePlayerWinsDisplay() {
 
 function checkForNewGame() {
   if (game.isWin() || game.isDraw()) {
-    // time out may go here...?
-    setTimeout(newGame, 4000);
+    setTimeout(newGame, 3000);
   }
   // else if (!game.isWin() && !game.isDraw()) {
   //   return `no need for a resest`
@@ -147,30 +146,20 @@ function checkForNewGame() {
 }
 
 function newGame() {
-  // after a reset period;
   game.newGame();
   clearGameGrid();
   updateGameBoardText();
-  updatePlayerWinsDisplay(); //is this redundant?
+  // updatePlayerWinsDisplay(); // this IS redundant
 }
 
 function clearGameGrid() {
-  gameGrid.innerHTML = '';
-  gameGrid.innerHTML += `
-  <div class="square" id="square-one"></div>
-  <div class="square" id="square-two"></div>
-  <div class="square" id="square-three"></div>
-  <div class="square" id="square-four"></div>
-  <div class="square" id="square-five"></div>
-  <div class="square" id="square-six"></div>
-  <div class="square" id="square-seven"></div>
-  <div class="square" id="square-eight"></div>
-  <div class="square" id="square-nine"></div>
-  `
+  squareOne.innerHTML = '';
+  squareTwo.innerHTML = '';
+  squareThree.innerHTML = '';
+  squareFour.innerHTML = '';
+  squareFive.innerHTML = '';
+  squareSix.innerHTML = '';
+  squareSeven.innerHTML = '';
+  squareEight.innerHTML = '';
+  squareNine.innerHTML = '';
 }
-
-/*
-
-setTimeout(function, 5000)
-
-*/
