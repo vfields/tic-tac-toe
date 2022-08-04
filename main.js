@@ -36,46 +36,58 @@ function placeToken() {
     game.pickSquare(currentPlayer, 0);
     renderToken(squareOne);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-two' && keepClicking()) {
     game.pickSquare(currentPlayer, 1);
     renderToken(squareTwo);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-three' && keepClicking()) {
     game.pickSquare(currentPlayer, 2);
     renderToken(squareThree);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-four' && keepClicking()) {
     game.pickSquare(currentPlayer, 3);
     renderToken(squareFour);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-five' && keepClicking()) {
     game.pickSquare(currentPlayer, 4);
     renderToken(squareFive);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-six' && keepClicking()) {
     game.pickSquare(currentPlayer, 5);
     renderToken(squareSix);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-seven' && keepClicking()) {
     game.pickSquare(currentPlayer, 6);
     renderToken(squareSeven);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-eight' && keepClicking()) {
     game.pickSquare(currentPlayer, 7);
     renderToken(squareEight);
     updateGameBoardText();
+    checkForNewGame();
   }
   else if (event.target.closest(".square").id === 'square-nine' && keepClicking()) {
     game.pickSquare(currentPlayer, 8);
     renderToken(squareNine);
     updateGameBoardText();
+    checkForNewGame();
+  }
+  else if(!keepClicking()) {
+    alert('The game will reset in a moment!')
   }
 }
 
@@ -122,4 +134,32 @@ function updateGameBoardText() {
 function updatePlayerWinsDisplay() {
   playerOneWins.innerHTML = `${playerOne.wins}`;
   playerTwoWins.innerHTML = `${playerTwo.wins}`;
+}
+
+function checkForNewGame() {
+  if (game.isWin() || game.isDraw()) {
+    setTimeout(newGame, 3000);
+  }
+  // else if (!game.isWin() && !game.isDraw()) {
+  //   return `no need for a resest`
+  // }
+}
+
+function newGame() {
+  game.newGame();
+  clearGameGrid();
+  updateGameBoardText();
+  // updatePlayerWinsDisplay(); // this IS redundant
+}
+
+function clearGameGrid() {
+  squareOne.innerHTML = '';
+  squareTwo.innerHTML = '';
+  squareThree.innerHTML = '';
+  squareFour.innerHTML = '';
+  squareFive.innerHTML = '';
+  squareSix.innerHTML = '';
+  squareSeven.innerHTML = '';
+  squareEight.innerHTML = '';
+  squareNine.innerHTML = '';
 }
