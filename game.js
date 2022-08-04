@@ -73,22 +73,22 @@ class Game {
       return false; // `this is not a draw`
     }
   }
-  checkBoard() {
-    if (!this.isWin() && !this.isDraw()) {
-      return `It's ${this.currentTurn.token}'s turn!`
-    }
-    else if (this.isWin()) {
-      return `${this.currentTurn.token} wins!`
-    }
-    else if (this.isDraw()) {
-      return `It's a draw!`
-    }
-  }
   newGame() {
     this.squares = ['', '', '', '', '', '', '', '', ''];
     // this.currentTurn = the previos winner
   }
   /* not sure about these... */
+  // checkBoard() {
+  //   if (!this.isWin() && !this.isDraw()) {
+  //     return false;
+  //   }
+  //   else if (this.isWin()) {
+  //     return true;
+  //   }
+  //   else if (this.isDraw()) {
+  //     return `draw`
+  //   }
+  // }
   //
   // checkBoard() {
   //   for (var i = 0; i < this.squares.length; i++) {

@@ -89,7 +89,20 @@ function renderToken(square) {
 }
 
 function updateGameBoardText() {
-  var innerText = game.checkBoard()
   gameBoardText.innerHTML = '';
-  gameBoardText.innerHTML += `${innerText}`;
+  if (!game.isWin() && !game.isDraw()) {
+    gameBoardText.innerHTML += `
+    It's <span class="game-board-token">${game.currentTurn.token}</span>'s turn
+    `
+  }
+  else if (game.isWin()) {
+    gameBoardText.innerHTML += `
+    <span class="game-board-token">${game.currentTurn.token}</span> won!
+    `
+  }
+  else if (game.isDraw()) {
+    gameBoardText.innerHTML += `
+    It's a draw!
+    `
+  }
 }
