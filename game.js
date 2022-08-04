@@ -74,6 +74,10 @@ class Game {
       return false; // `this is not a draw`
     }
   }
+  newGame() {
+    this.squares = ['', '', '', '', '', '', '', '', ''];
+    // this.currentTurn = the previos winner
+  }
   /* not sure about these... */
   //
   // checkBoard() {
