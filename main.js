@@ -5,7 +5,7 @@ var game
 var currentPlayer
 
 // query selectors
-var currentPlayerToken = document.querySelector('.game-board-token');
+var gameBoardText = document.querySelector('.game-board-text');
 var gameGrid = document.querySelector('.tic-tac-toe-grid');
 var squareOne = document.querySelector('#square-one');
 var squareTwo = document.querySelector('#square-two');
@@ -33,47 +33,47 @@ function placeToken() {
   if (event.target.closest(".square").id === 'square-one') {
     game.pickSquare(currentPlayer, 0);
     renderToken(squareOne);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-two') {
     game.pickSquare(currentPlayer, 1);
     renderToken(squareTwo);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-three') {
     game.pickSquare(currentPlayer, 2);
     renderToken(squareThree);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-four') {
     game.pickSquare(currentPlayer, 3);
     renderToken(squareFour);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-five') {
     game.pickSquare(currentPlayer, 4);
     renderToken(squareFive);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-six') {
     game.pickSquare(currentPlayer, 5);
     renderToken(squareSix);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-seven') {
     game.pickSquare(currentPlayer, 6);
     renderToken(squareSeven);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-eight') {
     game.pickSquare(currentPlayer, 7);
     renderToken(squareEight);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
   else if (event.target.closest(".square").id === 'square-nine') {
     game.pickSquare(currentPlayer, 8);
     renderToken(squareNine);
-    updateCurrentPlayerToken();
+    updateGameBoardText();
   }
 }
 
@@ -88,7 +88,8 @@ function renderToken(square) {
   }
 }
 
-function updateCurrentPlayerToken() {
-  currentPlayerToken.innerHTML = '';
-  currentPlayerToken.innerHTML += `${game.currentTurn.token}`
+function updateGameBoardText() {
+  var innerText = game.checkBoard()
+  gameBoardText.innerHTML = '';
+  gameBoardText.innerHTML += `${innerText}`;
 }

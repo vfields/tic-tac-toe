@@ -12,8 +12,11 @@ class Game {
       for (var i = 0; i < game.squares.length; i++) {
         if (squareNum === i && game.squares[i] === '') {
           this.squares[i] = player.token;
-          var returnMessage = this.checkBoard();
-          return returnMessage;
+          if (!this.isWin() && !this.isDraw()) {
+            this.switchTurn();
+          }
+          // var returnMessage = this.checkBoard();
+          // return returnMessage;
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
@@ -72,7 +75,6 @@ class Game {
   }
   checkBoard() {
     if (!this.isWin() && !this.isDraw()) {
-      this.switchTurn();
       return `It's ${this.currentTurn.token}'s turn!`
     }
     else if (this.isWin()) {
