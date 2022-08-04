@@ -27,21 +27,62 @@ body {
 }
 
 .game-board {
+  align-items: center;
   background-color: #f8edeb;
+  display: flex;
   flex: 3;
+  flex-direction: column;
   padding: 5px;
-  text-align: center;
 }
 
 .game-board-text {
-  margin-top: 70px;
+  margin: 70px 0px 75px;
 }
 
 .game-board-token {
   font-size: 45px;
 }
 
-.game-board-image {
-  height: 400px;
-  width: 320px;
+.tic-tac-toe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 360px;
+  width: 360px;
+}
+
+.square {
+  align-items: center;
+  border: 3px solid #9e2a2b;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  width: 120px;
+}
+
+#square-one,
+#square-two,
+#square-three {
+  border-top: none;
+}
+
+#square-three,
+#square-six,
+#square-nine {
+  border-right: none;
+}
+
+#square-seven,
+#square-eight,
+#square-nine {
+  border-bottom: none;
+}
+
+#square-one,
+#square-four,
+#square-seven {
+  border-left: none;
+}
+
+.user-token {
+  font-size: 75px;
 }
