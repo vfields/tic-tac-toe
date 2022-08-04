@@ -4,8 +4,6 @@ class Game {
     this.playerTwo = playerTwo;
     this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    /* brainstorm */
-    // this.keepPlaying = false;
   }
   pickSquare(player, squareNum) {
     if (this.currentTurn === player) {
@@ -17,11 +15,13 @@ class Game {
         }
         else if (squareNum === i && game.squares[i] !== '') {
           return `You have to pick a blank square!`
+          // can likely be deleted eventually
         }
       }
     }
     else {
       return `It's not your turn!`
+      // can likely be deleted eventually 
     }
   } // ^^ refactor eventually, nested loops and conditionals
   switchTurn() {
@@ -34,40 +34,40 @@ class Game {
   }
   isWin() {
     if (this.squares[0] !== '' && this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[3] !== '' && this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]) {
-      return true; // `Win!``
+      return true;
     }
     else if (this.squares[6] !== '' && this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[0] !== '' && this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[1] !== '' && this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[2] !== '' && this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[0] !== '' && this.squares[0] === this.squares[4] && this.squares[4] === this.squares[8]) {
-      return true; // `Win!`
+      return true;
     }
     else if (this.squares[2] !== '' && this.squares[2] === this.squares[4] && this.squares[4] === this.squares[6]) {
-      return true; // `Win!`
+      return true;
     }
     else {
-      return false; // `No winning combinations at this time.`
+      return false;
     }
   }
   isDraw() {
     if (this.squares[0] !== '' && this.squares[1] !== '' && this.squares[2] !== '' && this.squares[3] !== '' && this.squares[4] !== '' &&
         this.squares[5] !== '' && this.squares[6] !== '' && this.squares[7] !== '' && this.squares[8] !== '' && !this.isWin()) {
-          return true; // `this is draw`
+          return true;
         }
     else {
-      return false; // `this is not a draw`
+      return false;
     }
   }
   newGame() {

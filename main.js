@@ -79,6 +79,15 @@ function placeToken() {
   }
 }
 
+function keepClicking() {
+  if (!game.isWin() & !game.isDraw()) {
+    return true;
+  }
+  else if (game.isWin() || game.isDraw()) {
+    return false;
+  }
+}
+
 function renderToken(square) {
   if (square.innerHTML === '') {
     square.innerHTML += `
@@ -113,13 +122,4 @@ function updateGameBoardText() {
 function updatePlayerWinsDisplay() {
   playerOneWins.innerHTML = `${playerOne.wins}`;
   playerTwoWins.innerHTML = `${playerTwo.wins}`;
-}
-
-function keepClicking() {
-  if (!game.isWin() & !game.isDraw()) {
-    return true;
-  }
-  else if (game.isWin() || game.isDraw()) {
-    return false;
-  }
 }
