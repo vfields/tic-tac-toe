@@ -6,9 +6,9 @@ var game
 // query selectors
 
 // event listeners
+window.addEventListener('load', resetGame);
 
 // event handlers & functions
-
 function resetGame() {
   playerOne = new Player('playerOne', '🐶');
   playerTwo = new Player('playerTwo', '🐱');
