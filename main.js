@@ -6,6 +6,15 @@ var currentPlayer
 
 // query selectors
 var gameGrid = document.querySelector('.tic-tac-toe-grid');
+var squareOne = document.querySelector('#square-one');
+var squareTwo = document.querySelector('#square-two');
+var squareThree = document.querySelector('#square-three');
+var squareFour = document.querySelector('#square-four');
+var squareFive = document.querySelector('#square-five');
+var squareSix = document.querySelector('#square-six');
+var squareSeven = document.querySelector('#square-seven');
+var squareEight = document.querySelector('#square-eight');
+var squareNine = document.querySelector('#square-nine');
 
 // event listeners
 window.addEventListener('load', resetGame);
@@ -22,6 +31,7 @@ function placeToken() {
   currentPlayer = game.currentTurn;
   if (event.target.closest(".square").id === 'square-one') {
     game.pickSquare(currentPlayer, 0);
+    renderToken(squareOne);
   }
   else if (event.target.closest(".square").id === 'square-two') {
     game.pickSquare(currentPlayer, 1);
@@ -47,4 +57,10 @@ function placeToken() {
   else if (event.target.closest(".square").id === 'square-nine') {
     game.pickSquare(currentPlayer, 8);
   }
+}
+
+function renderToken(square) {
+  square.innerHTML += `
+  <span class="user-token">${currentPlayer.token}</span>
+  `
 }
