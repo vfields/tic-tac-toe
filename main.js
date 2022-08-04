@@ -77,6 +77,9 @@ function placeToken() {
     renderToken(squareNine);
     updateGameBoardText();
   }
+  else if(!keepClicking()) {
+    alert('The game will reset in a moment!')
+  }
 }
 
 function keepClicking() {
