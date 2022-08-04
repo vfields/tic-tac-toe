@@ -138,7 +138,8 @@ function updatePlayerWinsDisplay() {
 
 function checkForNewGame() {
   if (game.isWin() || game.isDraw()) {
-    newGame()
+    // time out may go here...?
+    setTimeout(newGame, 4000);
   }
   // else if (!game.isWin() && !game.isDraw()) {
   //   return `no need for a resest`
@@ -167,3 +168,9 @@ function clearGameGrid() {
   <div class="square" id="square-nine"></div>
   `
 }
+
+/*
+
+setTimeout(function, 5000)
+
+*/
