@@ -152,13 +152,24 @@ function checkForNewGame() {
 
 function newGame() {
   game.newGame();
-  clearGameGrid();
+  clearGrid();
   updateGameBoardText();
   // updatePlayerWinsDisplay(); // this IS redundant
 }
 
-function clearGameGrid() {
+function clearGrid() {
   for (var i = 0; i < squares.length; i++) {
     squares[i].innerHTML = '';
+  }
+}
+
+/* refactor */
+
+function renderGrid() {
+  for (var i = 0; i < game.squares.length; i++) {
+    squares[i].innerHTML = '';
+    squares[i].innerHTML += `
+    <span class="user-token">${game.squares[i]}</span>
+    `
   }
 }
