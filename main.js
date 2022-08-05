@@ -9,20 +9,7 @@ var playerOneWins = document.querySelector('.player-one-wins');
 var playerTwoWins = document.querySelector('.player-two-wins');
 var gameBoardText = document.querySelector('.game-board-text');
 var gameGrid = document.querySelector('.tic-tac-toe-grid');
-
-/* refactor */
-
 var squares = Array.from(document.querySelectorAll('.square'));
-
-var squareOne = document.querySelector('.square-one');
-var squareTwo = document.querySelector('.square-two');
-var squareThree = document.querySelector('.square-three');
-var squareFour = document.querySelector('.square-four');
-var squareFive = document.querySelector('.square-five');
-var squareSix = document.querySelector('.square-six');
-var squareSeven = document.querySelector('.square-seven');
-var squareEight = document.querySelector('.square-eight');
-var squareNine = document.querySelector('.square-nine');
 
 // event listeners
 window.addEventListener('load', resetGame);
@@ -34,8 +21,6 @@ function resetGame() {
   playerTwo = new Player('playerTwo', '🐱');
   game = new Game(playerOne, playerTwo);
 }
-
-// var refactor = event.target.closet(".square")
 
 function placeToken() {
   var squareID = event.target.id;
@@ -98,16 +83,12 @@ function checkForNewGame() {
   if (game.isWin() || game.isDraw()) {
     setTimeout(newGame, 3000);
   }
-  // else if (!game.isWin() && !game.isDraw()) {
-  //   return `no need for a resest`
-  // }
 }
 
 function newGame() {
   game.newGame();
   clearGrid();
   updateGameBoardText();
-  // updatePlayerWinsDisplay(); // this IS redundant
 }
 
 function clearGrid() {
@@ -116,20 +97,22 @@ function clearGrid() {
   }
 }
 
-function isSquareBlank () {
-  
-}
-
 /* refactored */
 
- function renderToken(square) {
-   console.log(square);
-   if (square.innerHTML === '') {
-     square.innerHTML += `
-     <span class="user-token">${currentPlayer.token}</span>
-     `
-   }
-   else {
-     alert('Oops! Please pick a blank square.')
-   }
- }
+// function keepClicking() {
+//   if (!game.isWin() & !game.isDraw()) {
+//     game.switchTurn();
+//     return true;
+//   }
+//   else if (game.isWin()) {
+//     this.currentTurn.increaseWins();
+//     return false;
+//   }
+//   else {
+//     return false;
+//   }
+// }
+
+// this, as it is even currently used & written
+// outside of the refactor is awfully close to game.checkBoard...
+// how can you make them less repetitive?
