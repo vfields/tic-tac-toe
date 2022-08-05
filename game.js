@@ -8,8 +8,13 @@ class Game {
   }
   pickSquare(player, squareNum) {
     if (this.currentTurn === player) {
+      console.log("inside of first conditional")
       for (var i = 0; i < game.squares.length; i++) {
-        if (squareNum === i && game.squares[i] === '') {
+        console.log("inside of for loop")
+        // console.log("squareNum", typeof squareNum);
+        // console.log("i", typeof i);
+        if (parseInt(squareNum) === i && game.squares[i] === '') {
+          console.log("inside of second conditional")
           this.squares[i] = player.token;
           return this.checkBoard();
           // can eventually be just this.checkBoard() I think

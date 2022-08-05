@@ -59,27 +59,27 @@ body {
   width: 120px;
 }
 
-#square-one,
-#square-two,
-#square-three {
+.square-one,
+.square-two,
+.square-three {
   border-top: none;
 }
 
-#square-three,
-#square-six,
-#square-nine {
+.square-three,
+.square-six,
+.square-nine {
   border-right: none;
 }
 
-#square-seven,
-#square-eight,
-#square-nine {
+.square-seven,
+.square-eight,
+.square-nine {
   border-bottom: none;
 }
 
-#square-one,
-#square-four,
-#square-seven {
+.square-one,
+.square-four,
+.square-seven {
   border-left: none;
 }
 

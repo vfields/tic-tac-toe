@@ -12,17 +12,17 @@ var gameGrid = document.querySelector('.tic-tac-toe-grid');
 
 /* refactor */
 
-var squares = Array.from(document.querySelectorAll('.square'))
+var squares = Array.from(document.querySelectorAll('.square'));
 
-var squareOne = document.querySelector('#square-one');
-var squareTwo = document.querySelector('#square-two');
-var squareThree = document.querySelector('#square-three');
-var squareFour = document.querySelector('#square-four');
-var squareFive = document.querySelector('#square-five');
-var squareSix = document.querySelector('#square-six');
-var squareSeven = document.querySelector('#square-seven');
-var squareEight = document.querySelector('#square-eight');
-var squareNine = document.querySelector('#square-nine');
+var squareOne = document.querySelector('.square-one');
+var squareTwo = document.querySelector('.square-two');
+var squareThree = document.querySelector('.square-three');
+var squareFour = document.querySelector('.square-four');
+var squareFive = document.querySelector('.square-five');
+var squareSix = document.querySelector('.square-six');
+var squareSeven = document.querySelector('.square-seven');
+var squareEight = document.querySelector('.square-eight');
+var squareNine = document.querySelector('.square-nine');
 
 // event listeners
 window.addEventListener('load', resetGame);
@@ -35,62 +35,67 @@ function resetGame() {
   game = new Game(playerOne, playerTwo);
 }
 
+// var refactor = event.target.closet(".square")
+
 function placeToken() {
+  var squareID = event.target.id;
+  console.log(squareID);
+  // if index number = id...
   currentPlayer = game.currentTurn;
-  if (event.target.closest(".square").id === 'square-one' && keepClicking()) {
-    game.pickSquare(currentPlayer, 0);
-    renderToken(squareOne);
+  if (event.target.closest(".square").id === squareID && keepClicking()) {
+    game.pickSquare(currentPlayer, squareID);
+    renderGrid();
     updateGameBoardText();
     checkForNewGame();
   }
-  else if (event.target.closest(".square").id === 'square-two' && keepClicking()) {
-    game.pickSquare(currentPlayer, 1);
-    renderToken(squareTwo);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-three' && keepClicking()) {
-    game.pickSquare(currentPlayer, 2);
-    renderToken(squareThree);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-four' && keepClicking()) {
-    game.pickSquare(currentPlayer, 3);
-    renderToken(squareFour);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-five' && keepClicking()) {
-    game.pickSquare(currentPlayer, 4);
-    renderToken(squareFive);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-six' && keepClicking()) {
-    game.pickSquare(currentPlayer, 5);
-    renderToken(squareSix);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-seven' && keepClicking()) {
-    game.pickSquare(currentPlayer, 6);
-    renderToken(squareSeven);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-eight' && keepClicking()) {
-    game.pickSquare(currentPlayer, 7);
-    renderToken(squareEight);
-    updateGameBoardText();
-    checkForNewGame();
-  }
-  else if (event.target.closest(".square").id === 'square-nine' && keepClicking()) {
-    game.pickSquare(currentPlayer, 8);
-    renderToken(squareNine);
-    updateGameBoardText();
-    checkForNewGame();
-  }
+  // else if (event.target.closest(".square").id === squareID && keepClicking()) {
+  //   game.pickSquare(currentPlayer, squareID);
+  //   renderGrid();
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-three' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 2);
+  //   renderToken(squareThree);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-four' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 3);
+  //   renderToken(squareFour);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-five' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 4);
+  //   renderToken(squareFive);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-six' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 5);
+  //   renderToken(squareSix);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-seven' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 6);
+  //   renderToken(squareSeven);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-eight' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 7);
+  //   renderToken(squareEight);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
+  // else if (event.target.closest(".square").id === 'square-nine' && keepClicking()) {
+  //   game.pickSquare(currentPlayer, 8);
+  //   renderToken(squareNine);
+  //   updateGameBoardText();
+  //   checkForNewGame();
+  // }
   else if(!keepClicking()) {
     alert('The game will reset in a moment!')
   }
@@ -106,6 +111,7 @@ function keepClicking() {
 }
 
 function renderToken(square) {
+  console.log(square);
   if (square.innerHTML === '') {
     square.innerHTML += `
     <span class="user-token">${currentPlayer.token}</span>
@@ -165,6 +171,18 @@ function clearGrid() {
 
 /* refactor */
 
+// gameGrid.addEventListener('click', placeTokenRefactor);
+
+// function placeTokenRefactor() {
+// }
+
+/*
+square is clicked
+update data model
+render grid
+}
+*/
+
 function renderGrid() {
   for (var i = 0; i < game.squares.length; i++) {
     squares[i].innerHTML = '';
@@ -173,3 +191,11 @@ function renderGrid() {
     `
   }
 }
+
+// probably don't need renderToken by itself now, since
+// you have renderGrid - but you might want the alert!
+// something like:
+/*
+function isSquareEmpty() {
+// if the square is not empty, alert('Oops! Please pick a blank square.')
+ */
