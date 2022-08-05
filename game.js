@@ -2,9 +2,9 @@ class Game {
   constructor(playerOne, playerTwo) {
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
+    this.firstTurn = playerOne;
     this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    this.firstTurn = playerOne;
   }
   pickSquare(player, squareNum) {
     if (this.currentTurn === player) {
@@ -87,7 +87,7 @@ class Game {
     }
     else if (this.isDraw()) {
       return `draw, stop playing, reset game`
-    } // refactor these returns 
+    } // refactor these returns
   }
   switchFirstTurn() {
     if (this.firstTurn === playerOne) {

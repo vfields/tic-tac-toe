@@ -9,6 +9,11 @@ var playerOneWins = document.querySelector('.player-one-wins');
 var playerTwoWins = document.querySelector('.player-two-wins');
 var gameBoardText = document.querySelector('.game-board-text');
 var gameGrid = document.querySelector('.tic-tac-toe-grid');
+
+/* refactor */
+
+var squares = Array.from(document.querySelectorAll('.square'))
+
 var squareOne = document.querySelector('#square-one');
 var squareTwo = document.querySelector('#square-two');
 var squareThree = document.querySelector('#square-three');
@@ -153,13 +158,7 @@ function newGame() {
 }
 
 function clearGameGrid() {
-  squareOne.innerHTML = '';
-  squareTwo.innerHTML = '';
-  squareThree.innerHTML = '';
-  squareFour.innerHTML = '';
-  squareFive.innerHTML = '';
-  squareSix.innerHTML = '';
-  squareSeven.innerHTML = '';
-  squareEight.innerHTML = '';
-  squareNine.innerHTML = '';
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].innerHTML = '';
+  }
 }
