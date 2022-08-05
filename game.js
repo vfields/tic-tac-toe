@@ -8,18 +8,13 @@ class Game {
   }
   pickSquare(player, squareNum) {
     if (this.currentTurn === player) {
-      console.log("inside of first conditional")
-      for (var i = 0; i < game.squares.length; i++) {
-        console.log("inside of for loop")
-        // console.log("squareNum", typeof squareNum);
-        // console.log("i", typeof i);
-        if (parseInt(squareNum) === i && game.squares[i] === '') {
-          console.log("inside of second conditional")
+      for (var i = 0; i < this.squares.length; i++) {
+        if (parseInt(squareNum) === i && this.squares[i] === '') {
           this.squares[i] = player.token;
           return this.checkBoard();
           // can eventually be just this.checkBoard() I think
         }
-        else if (squareNum === i && game.squares[i] !== '') {
+        else if (squareNum === i && this.squares[i] !== '') {
           return `You have to pick a blank square!`
           // can likely be deleted eventually
         }
