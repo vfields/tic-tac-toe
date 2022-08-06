@@ -2,8 +2,8 @@ class Player {
   constructor(id, token) {
     this.id = id;
     this.token = token;
-    this.wins = 0;
     this.turns = 0;
+    this.wins = 0;
   }
   increaseTurns() {
     this.turns += 1;

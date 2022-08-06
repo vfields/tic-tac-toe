@@ -98,23 +98,3 @@ function clearGrid() {
     squares[i].innerHTML = '';
   }
 }
-
-/* refactored */
-
-// function keepClicking() {
-//   if (!game.isWin() & !game.isDraw()) {
-//     game.switchTurn();
-//     return true;
-//   }
-//   else if (game.isWin()) {
-//     this.currentTurn.increaseWins();
-//     return false;
-//   }
-//   else {
-//     return false;
-//   }
-// }
-
-// this, as it is even currently used & written
-// outside of the refactor is awfully close to game.checkBoard...
-// how can you make them less repetitive?
