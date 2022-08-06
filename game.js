@@ -18,7 +18,7 @@ class Game {
     if (this.currentTurn === playerOne) {
       this.currentTurn = playerTwo;
     }
-    else if (this.currentTurn === playerTwo) {
+    else {
       this.currentTurn = playerOne;
     }
   } // what if I had an array of winning conditions to check against in this function?
@@ -78,7 +78,7 @@ class Game {
     if (this.firstTurn === playerOne) {
       this.firstTurn = playerTwo;
     }
-    else if (this.firstTurn === playerTwo) {
+    else {
       this.firstTurn = playerOne;
     }
   }
