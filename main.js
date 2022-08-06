@@ -30,8 +30,11 @@ function placeToken() {
     updateGameBoardText();
     checkForNewGame();
   }
-  else if(!keepClicking()) {
+  else if (!keepClicking()) {
     alert('The game will reset in a moment!')
+  }
+  else {
+    alert('Oops! Please pick a blank square.')
   }
 }
 
@@ -39,7 +42,7 @@ function keepClicking() {
   if (!game.isWin() & !game.isDraw()) {
     return true;
   }
-  else if (game.isWin() || game.isDraw()) {
+  else {
     return false;
   }
 }
@@ -66,7 +69,7 @@ function updateGameBoardText() {
     <span class="game-board-token">${game.currentTurn.token}</span> won!
     `
   }
-  else if (game.isDraw()) {
+  else {
     gameBoardText.innerHTML += `
     It's a draw <span class="game-board-token">🙈</span>
     `
