@@ -2,37 +2,28 @@ class Game {
   constructor(playerOne, playerTwo) {
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
+    this.firstTurn = playerOne;
     this.currentTurn = playerOne;
     this.squares = ['', '', '', '', '', '', '', '', ''];
-    this.firstTurn = playerOne;
   }
   pickSquare(player, squareNum) {
-    if (this.currentTurn === player) {
-      for (var i = 0; i < game.squares.length; i++) {
-        if (squareNum === i && game.squares[i] === '') {
-          this.squares[i] = player.token;
-          return this.checkBoard();
-          // can eventually be just this.checkBoard() I think
-        }
-        else if (squareNum === i && game.squares[i] !== '') {
-          return `You have to pick a blank square!`
-          // can likely be deleted eventually
-        }
+    for (var i = 0; i < this.squares.length; i++) {
+      if (parseInt(squareNum) === i && this.squares[i] === '') {
+        this.squares[i] = player.token;
+        this.currentTurn.increaseTurns();
+        this.checkBoard();
       }
     }
-    else {
-      return `It's not your turn!`
-      // can likely be deleted eventually
-    }
-  } // ^^ refactor eventually, nested loops and conditionals
+  }
   switchTurn() {
     if (this.currentTurn === playerOne) {
       this.currentTurn = playerTwo;
     }
-    else if (this.currentTurn === playerTwo) {
+    else {
       this.currentTurn = playerOne;
     }
-  }
+  } // what if I had an array of winning conditions to check against in this function?
+  // where the array lives as a property of the class
   isWin() {
     if (this.squares[0] !== '' && this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
       return true;
@@ -63,10 +54,9 @@ class Game {
     }
   }
   isDraw() {
-    if (this.squares[0] !== '' && this.squares[1] !== '' && this.squares[2] !== '' && this.squares[3] !== '' && this.squares[4] !== '' &&
-        this.squares[5] !== '' && this.squares[6] !== '' && this.squares[7] !== '' && this.squares[8] !== '' && !this.isWin()) {
-          return true;
-        }
+    if (this.playerOne.turns === 5 || this.playerTwo.turns === 5) {
+      return true;
+    }
     else {
       return false;
     }
@@ -75,65 +65,23 @@ class Game {
     this.squares = ['', '', '', '', '', '', '', '', ''];
     this.switchFirstTurn();
     this.currentTurn = this.firstTurn;
+    this.playerOne.turns = 0;
+    this.playerTwo.turns = 0;
   }
   checkBoard() {
     if (!this.isWin() && !this.isDraw()) {
       this.switchTurn();
-      return `keep playing`
     }
     else if (this.isWin()) {
       this.currentTurn.increaseWins();
-      return `win, stop playing, reset game`
     }
-    else if (this.isDraw()) {
-      return `draw, stop playing, reset game`
-    } // refactor these returns 
   }
   switchFirstTurn() {
     if (this.firstTurn === playerOne) {
       this.firstTurn = playerTwo;
     }
-    else if (this.firstTurn === playerTwo) {
+    else {
       this.firstTurn = playerOne;
     }
   }
-  /* not sure about these... */
-  //
-  // checkBoard() {
-  //   for (var i = 0; i < this.squares.length; i++) {
-  //     if (this.squares[i] === '') {
-  //       this.keepPlaying = true;
-  //       return true;
-  //     }
-  //     else if (this.squares[i] !== '') {
-  //       this.keepPlaying = false;
-  //       return false;
-  //     }
-  //   }
-  // }
-  //
-  // play() {
-  //   //this.checkBoard();
-  //   if (this.keepPlaying) {
-  //     return `It's ${this.currentTurn}'s turn!`
-  //   }
-  //   else if (!this.keepPlaying) {
-  //     // maybe... check winner?
-  //   }
-  // }
-  //
-  // // kind of feels like whose turn at the start of the game..
-  // whoseTurn() {
-  //   // new game, no one has won
-  //   if (this.playerOne.wins === 0 && this.playerTwo.wins === 0) {
-  //     // this.playerOne.turn = true;
-  //   }
-  // }
-  // checkTurn(player) {
-  //   if (this.currentTurn === player) {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }
 }
