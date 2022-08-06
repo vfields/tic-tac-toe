@@ -10,6 +10,7 @@ class Game {
     for (var i = 0; i < this.squares.length; i++) {
       if (parseInt(squareNum) === i && this.squares[i] === '') {
         this.squares[i] = player.token;
+        this.currentTurn.increaseTurns();
         this.checkBoard();
       }
     }
@@ -51,12 +52,11 @@ class Game {
     else {
       return false;
     }
-  } // if any player goes 5x, it's a draw (could count the # of turns/spots)
+  }
   isDraw() {
-    if (this.squares[0] !== '' && this.squares[1] !== '' && this.squares[2] !== '' && this.squares[3] !== '' && this.squares[4] !== '' &&
-        this.squares[5] !== '' && this.squares[6] !== '' && this.squares[7] !== '' && this.squares[8] !== '' && !this.isWin()) {
-          return true;
-        }
+    if (this.playerOne.turns === 5 || this.playerTwo.turns === 5) {
+      return true;
+    }
     else {
       return false;
     }
@@ -65,6 +65,8 @@ class Game {
     this.squares = ['', '', '', '', '', '', '', '', ''];
     this.switchFirstTurn();
     this.currentTurn = this.firstTurn;
+    this.playerOne.turns = 0;
+    this.playerTwo.turns = 0;
   }
   checkBoard() {
     if (!this.isWin() && !this.isDraw()) {
