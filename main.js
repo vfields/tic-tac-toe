@@ -2,7 +2,6 @@
 var playerOne
 var playerTwo
 var game
-var currentPlayer
 
 // query selectors
 var playerOneWins = document.querySelector('.player-one-wins');
@@ -24,7 +23,7 @@ function resetGame() {
 
 function placeToken() {
   var squareID = event.target.id;
-  currentPlayer = game.currentTurn;
+  var currentPlayer = game.currentTurn;
   if (event.target.closest(".square").id === squareID && keepClicking()) {
     game.pickSquare(currentPlayer, squareID);
     renderGrid();

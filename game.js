@@ -13,7 +13,7 @@ class Game {
         this.checkBoard();
       }
     }
-  } // do we need to call checkBoard or can this be in the main?
+  }
   switchTurn() {
     if (this.currentTurn === playerOne) {
       this.currentTurn = playerTwo;
@@ -21,7 +21,8 @@ class Game {
     else if (this.currentTurn === playerTwo) {
       this.currentTurn = playerOne;
     }
-  }
+  } // what if I had an array of winning conditions to check against in this function?
+  // where the array lives as a property of the class
   isWin() {
     if (this.squares[0] !== '' && this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]) {
       return true;
@@ -50,7 +51,7 @@ class Game {
     else {
       return false;
     }
-  }
+  } // if any player goes 5x, it's a draw (could count the # of turns/spots)
   isDraw() {
     if (this.squares[0] !== '' && this.squares[1] !== '' && this.squares[2] !== '' && this.squares[3] !== '' && this.squares[4] !== '' &&
         this.squares[5] !== '' && this.squares[6] !== '' && this.squares[7] !== '' && this.squares[8] !== '' && !this.isWin()) {
@@ -68,14 +69,9 @@ class Game {
   checkBoard() {
     if (!this.isWin() && !this.isDraw()) {
       this.switchTurn();
-      return true;
     }
     else if (this.isWin()) {
       this.currentTurn.increaseWins();
-      return false;
-    }
-    else {
-      return false;
     }
   }
   switchFirstTurn() {
