@@ -5,13 +5,15 @@ Everyone loves a classic game of tic tac toe, and this application allows you an
 
 ## Preview of App:
 
+![alt text](https://user-images.githubusercontent.com/103962335/183304656-da8bdc76-4fb0-45a3-b044-097eea801a6e.png "Tic-Tac-Toe Preview")
+
 ## Context:
 Creating this application entirely from scratch was our final solo project assigned at the end of Module 1 during Week 5 at Turing.
 
 ## Contributors:
 Tori Fields:
-LinkedIn: https://www.linkedin.com/in/victoria-ashley-fields/
-GitHub: https://github.com/vfields
+* LinkedIn: https://www.linkedin.com/in/victoria-ashley-fields/
+* GitHub: https://github.com/vfields
 
 ## Learning Goals:
 While implementing semantic HTML and dynamic, concise CSS were both pieces of this project’s learning goals, the main focus was on writing DRY, clean JavaScript that showcased both a knowledge of data-model-first manipulation of the DOM, and an understanding of event delegation.
