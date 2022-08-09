@@ -16,7 +16,7 @@ Everyone loves a classic game of tic tac toe, and this application allows you an
 ![alt text](https://user-images.githubusercontent.com/103962335/183304656-da8bdc76-4fb0-45a3-b044-097eea801a6e.png "Tic-Tac-Toe Preview")
 
 ## Context:
-Creating this application entirely from scratch was our final solo project assigned at the end of Module 1 during Week 5 at Turing.
+Creating this application entirely from scratch using HTML, CSS, and JavaScript was our final solo project assigned at the end of Module 1 during Week 5 at Turing.
 
 ## Contributors:
 Tori Fields:
