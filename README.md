@@ -3,6 +3,14 @@
 ## Abstract:
 Everyone loves a classic game of tic tac toe, and this application allows you and a friend to play as many rounds together as you please! It will not only keep track of whose turn it is and the current score, but will also automatically restart a new game after a win or draw, so that you both can get lost in the fun and smile about your adorable cat or dog token.
 
+## Set-Up Instructions:
+1. Fork [this](https://github.com/vfields/tic-tac-toe) repository.
+2. In the upper right hand corner of your forked repo, press the green 'code' drop-down button.
+3. Copy the SSH URL.
+4. Clone down your new, forked repo using this terminal command: git clone <url> <newNameYouWantItToHave>, where the <url> is the SSH URL you just copied.
+5. Use the cd command to go into the cloned repository.
+6. Once inside, use the open index.html to open the application, and enjoy!
+
 ## Preview of App:
 
 ![alt text](https://user-images.githubusercontent.com/103962335/183304656-da8bdc76-4fb0-45a3-b044-097eea801a6e.png "Tic-Tac-Toe Preview")
