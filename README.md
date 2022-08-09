@@ -7,9 +7,9 @@ Everyone loves a classic game of tic tac toe, and this application allows you an
 1. Fork [this](https://github.com/vfields/tic-tac-toe) repository.
 2. In the upper right hand corner of your forked repo, press the green 'code' drop-down button.
 3. Copy the SSH URL.
-4. Clone down your new, forked repo using this terminal command: git clone <url> <newNameYouWantItToHave>, where the <url> is the SSH URL you just copied.
-5. Use the cd command to go into the cloned repository.
-6. Once inside, use the open index.html to open the application, and enjoy!
+4. Clone down your new, forked repo using this terminal command: <code>git clone url newNameYouWantItToHave</code>, where the <code>url</code> is the SSH URL you just copied, and the <code>newNameYouWantItToHave</code> is whatever you'd like this Tic Tac Toe game to be called on your computer.
+5. Use the <code>cd</code> command to go into the cloned repository.
+6. Once inside, use the <code>open index.html</code> to open the application, and enjoy!
 
 ## Preview of App:
 
